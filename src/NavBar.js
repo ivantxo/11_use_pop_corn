@@ -1,15 +1,14 @@
 import { useState } from "react";
 import Search from "./Search";
 import Logo from "./Logo";
+import NumResults from "./NumResults";
 
 function NavBar() {
   return (
     <nav className="nav-bar">
       <Logo />
       <Search />
-      <p className="num-results">
-        Found <strong>X</strong> results
-      </p>
+      <NumResults />
     </nav>
   );
 }
