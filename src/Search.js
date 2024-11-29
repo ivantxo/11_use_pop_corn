@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Search() {
   const [query, setQuery] = useState("");
 

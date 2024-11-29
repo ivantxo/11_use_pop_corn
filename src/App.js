@@ -49,14 +49,11 @@ const tempWatchedData = [
   },
 ];
 
-const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-
 export default function App() {
   return (
     <>
       <NavBar />
-      <Main />
+      <Main tempMovieData={tempMovieData} tempWatchedData={tempWatchedData} />
     </>
   );
 }
