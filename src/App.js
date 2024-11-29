@@ -4,6 +4,8 @@ import { useState } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import NumResults from "./NumResults";
+import ListBox from "./ListBox";
+import WatchedBox from "./WatchedBox";
 
 const tempMovieData = [
   {
@@ -63,7 +65,10 @@ export default function App() {
         <NumResults movies={movies} />
       </NavBar>
 
-      <Main movies={movies} tempWatchedData={tempWatchedData} />
+      <Main>
+        <ListBox movies={movies} />
+        <WatchedBox tempWatchedData={tempWatchedData} />
+      </Main>
     </>
   );
 }
