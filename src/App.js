@@ -6,6 +6,7 @@ import Search from "./Search";
 import NumResults from "./NumResults";
 import ListBox from "./ListBox";
 import WatchedBox from "./WatchedBox";
+import MovieList from "./MovieList";
 
 const tempMovieData = [
   {
@@ -66,7 +67,9 @@ export default function App() {
       </NavBar>
 
       <Main>
-        <ListBox movies={movies} />
+        <ListBox>
+          <MovieList movies={movies} />
+        </ListBox>
         <WatchedBox tempWatchedData={tempWatchedData} />
       </Main>
     </>
