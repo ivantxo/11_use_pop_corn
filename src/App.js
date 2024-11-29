@@ -54,7 +54,7 @@ export default function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar movies={movies} />
       <Main movies={movies} tempWatchedData={tempWatchedData} />
     </>
   );
