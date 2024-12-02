@@ -339,6 +339,18 @@ body {
   justify-content: center;
 }
 
+.box::-webkit-scrollbar {
+  display: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.list-watched::-webkit-scrollbar {
+  display: none;
+}
+
 /*
 SPACING SYSTEM (px)
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 128
