@@ -1,6 +1,6 @@
 import NavBar from "./NavBar";
 import Main from "./Main";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Search from "./Search";
 import NumResults from "./NumResults";
@@ -56,9 +56,17 @@ const tempWatchedData = [
   },
 ];
 
+const KEY = "e861a96c";
+
 export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [movies, setMovies] = useState([]);
+  const [watched, setWatched] = useState([]);
+
+  useEffect(function () {
+    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=interstellar`)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.Search));
+  }, []);
 
   return (
     <>
