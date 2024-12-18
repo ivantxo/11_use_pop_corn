@@ -8,6 +8,7 @@ import MovieList from "./MovieList";
 import Box from "./Box";
 import WatchedSummary from "./WatchedSummary";
 import WacthedMoviesList from "./WacthedMoviesList";
+import MovieDetails from "./MovieDetails";
 
 const tempMovieData = [
   {
@@ -64,7 +65,11 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const tempQuery = "Star wars";
+  const [selectedId, setSelectedId] = useState(null);
+
+  function handleSelectMovie(id) {
+    setSelectedId(id);
+  }
 
   useEffect(
     function () {
@@ -113,13 +118,21 @@ export default function App() {
       <Main>
         <Box>
           {isLoading && <Loader />}
-          {!isLoading && !error && <MovieList movies={movies} />}
+          {!isLoading && !error && (
+            <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
+          )}
           {error && <ErrorMessage message={error} />}
         </Box>
 
         <Box>
-          <WatchedSummary watched={watched} />
-          <WacthedMoviesList watched={watched} />
+          {selectedId ? (
+            <MovieDetails selectedId={selectedId} />
+          ) : (
+            <>
+              <WatchedSummary watched={watched} />
+              <WacthedMoviesList watched={watched} />
+            </>
+          )}
         </Box>
       </Main>
     </>
