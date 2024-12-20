@@ -9,6 +9,7 @@ import Box from "./Box";
 import WatchedSummary from "./WatchedSummary";
 import WacthedMoviesList from "./WacthedMoviesList";
 import MovieDetails from "./MovieDetails";
+import Loader from "./Loader";
 
 const tempMovieData = [
   {
@@ -133,6 +134,7 @@ export default function App() {
             <MovieDetails
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
+              apiKey={KEY}
             />
           ) : (
             <>
@@ -144,10 +146,6 @@ export default function App() {
       </Main>
     </>
   );
-}
-
-function Loader() {
-  return <p className="loader">Loading...</p>;
 }
 
 function ErrorMessage({ message }) {
