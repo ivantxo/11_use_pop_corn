@@ -75,6 +75,23 @@ function MovieDetails({
     [title]
   );
 
+  useEffect(
+    function () {
+      function listenScape(e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+          console.log("closing!!!");
+        }
+      }
+      document.addEventListener("keydown", listenScape);
+
+      return function () {
+        document.removeEventListener("keydown", listenScape);
+      };
+    },
+    [onCloseMovie]
+  );
+
   return (
     <div className="details">
       {isLoading ? (
